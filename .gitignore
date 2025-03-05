@@ -1,1 +1,8 @@
+# Ignorar el ejecutable Divide_Venceras
 Divide_Venceras
+
+# Puedes agregar otras reglas de ignorar aquí
+# Por ejemplo, ignorar archivos temporales de compilación
+*.o
+*.log
+*.tmp
