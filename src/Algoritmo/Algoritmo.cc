@@ -19,7 +19,27 @@
   * @brief Crea el objeto de la clase Algoritmo.
   * @param 
   * @return objeto de la clase Algoritmo
-  */
+*/
+
 Algoritmo::Algoritmo() {
 
+}
+
+/**
+ * @brief Función que ordena la secuencia
+ * @param sequence Secuencia a ordenar
+ * @param size Tamaño de la secuencia
+ * @return vector<int> Secuencia ordenada
+*/
+
+vector<int> Algoritmo::solve(const vector<int>& sequence, int size) {
+  if (small(sequence)) {
+    return solveSmall(sequence);
+  } else {
+    vector<vector<int>> parts = divide(sequence);
+    vector<int> subsequence1 = solve(parts[0], size / 2);
+    vector<int> subsequence2= solve(parts[1], size / 2);
+    vector<int> result = combine(subsequence1, subsequence2);
+    return result;
+  }
 }

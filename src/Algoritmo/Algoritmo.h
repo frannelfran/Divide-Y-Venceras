@@ -14,12 +14,25 @@
 //        03/05/25 - Creación (primera versión) del código
 #ifndef C_Algoritmo_H
 #define C_Algoritmo_H
+#include <vector>
+
+using namespace std;
 
 class Algoritmo {
  public:
   Algoritmo();
+
+  virtual bool small(const vector<int>& sequence) = 0; // Comprueba si la secuencia es pequeña
+  virtual vector<int> solveSmall(const vector<int>& sequence) = 0; // Resuelve la secuencia pequeña
+  virtual vector<vector<int>> divide(const vector<int>& secuencia) = 0; // Divide la secuencia en dos partes
+  virtual vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) = 0; // Combina las dos partes de la secuencia
+
+  vector<int> solve(const vector<int>& secuencia, int size); // Resuelve la secuencia
+
  private:
- 
+  int a_;
+  int b_;
+  int d_;
 };
 
 #endif
