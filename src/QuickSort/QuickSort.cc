@@ -93,3 +93,11 @@ vector<int> QuickSort::combine(const vector<int>& subsequence1, const vector<int
   }
   return result;
 }
+
+/** QuickSort::get_recurrencia()
+  * @brief Devuelve la recurrencia del algoritmo
+  * @return string con la recurrencia del algoritmo
+  */
+string QuickSort::get_recurrencia() {
+  return "T(n) = 2T(n/2) + n";
+}
