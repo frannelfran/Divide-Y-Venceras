@@ -14,12 +14,19 @@
 //        03/05/25 - Creación (primera versión) del código
 #ifndef C_QuickSort_H
 #define C_QuickSort_H
+#include <iostream>
+#include <list>
+#include "../Algoritmo/Algoritmo.h"
 
-class QuickSort {
+class QuickSort : public Algoritmo {
  public:
   QuickSort();
+  bool small(const vector<int>& sequence) override; // Comprueba si la secuencia es pequeña
+  vector<int> solveSmall(const vector<int>& sequence) override; // Resuelve la secuencia pequeña
+  vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
+  vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) override; // Combina las dos partes de la secuencia
  private:
- 
+  list<int> pivotes_;
 };
 
 #endif
