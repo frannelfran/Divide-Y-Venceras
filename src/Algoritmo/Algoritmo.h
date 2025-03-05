@@ -29,7 +29,7 @@ class Algoritmo {
 
   vector<int> solve(const vector<int>& secuencia, int size); // Resuelve la secuencia
 
- private:
+ protected:
   int a_;
   int b_;
   int d_;
