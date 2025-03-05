@@ -36,7 +36,7 @@ Dato recoger_parametro(int numero_argumentos, char *argv[]) {
         mostrar_ayuda();
         datos.correcto = true;
       } else {
-        datos.fichero = argv[1];
+        datos.numero_instancias = std::stoi(argv[1]);
       }
       return datos;
     default:

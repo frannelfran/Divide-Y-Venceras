@@ -19,9 +19,10 @@
 #include<string>
 
 
+
 struct Dato {
   bool correcto;
-  std::string fichero;
+  int numero_instancias;
 };
 
 Dato recoger_parametro(int argc, char *argv[]);
