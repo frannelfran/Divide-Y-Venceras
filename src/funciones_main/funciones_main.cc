@@ -49,15 +49,15 @@ Dato recoger_parametro(int numero_argumentos, char *argv[]) {
  */
 void mostrar_ayuda() {
   std::cout << "\nEste programa se encarga de realizar " << std::endl;
-  std::cout << "El programa recibe como argumentos el nombre del fichero que contiene " << std::endl;
-  std::cout << "Usage: ./busqueda_no_informada fichero.txt " << std::endl;
+  std::cout << "El programa recibe como argumentos un entero que representa el número de instancias aleatorias que se van a crear\n Genera instancias aleatorias comprendidas entre 1 a 100" << std::endl;
+  std::cout << "Usage: ./Divide_Venceras <numero de instancias> " << std::endl;
 }
 
 /**
  * @brief Muestra una ayuda resumida del programa
  */
 void mostrar_ayuda_resumida() {
-  std::cout << "\nUsage: ./busqueda_no_informada fichero.txt" << std::endl;
+  std::cout << "\nUsage: ./Divide_Venceras <numero de instancias>" << std::endl;
   std::cout << "Usa el parámetro -h para más información" << std::endl;
 }
 
