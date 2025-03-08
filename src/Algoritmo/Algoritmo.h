@@ -16,6 +16,7 @@
 #define C_Algoritmo_H
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 

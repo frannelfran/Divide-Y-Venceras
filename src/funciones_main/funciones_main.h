@@ -15,9 +15,12 @@
 #ifndef C_funciones_main_H
 #define C_funciones_main_H
 #include"../Algoritmo/Algoritmo.h"
+#include"../MergeSort/MergeSort.h"
+#include"../QuickSort/QuickSort.h"
 #include<iostream>
 #include<string>
 #include<vector>
+#include<chrono>
 using namespace std;
 
 struct Dato {
@@ -29,7 +32,10 @@ struct Dato {
 Dato recoger_parametro(int argc, char *argv[]);
 void mostrar_ayuda();
 void mostrar_ayuda_resumida();
-void menu(int numero_instancias, vector<Algoritmo*> algoritmos);
+void menu();
+Algoritmo* crear_algoritmo(const string& nombre);
+void mostrar_algoritmos();
 void mostrar_ayuda_menu();
+vector<vector<int>> generar_instancias(int numero_instancias);
 
 #endif

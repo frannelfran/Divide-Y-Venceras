@@ -26,31 +26,8 @@ int main(int argc, char *argv[]) {
     std::cerr << "Error no se han introducido los datos correctamente" << std::endl;
     return 1;
   }
-  // creo un vector de int
-  vector<int> secuencia;
-  // creo un objeto de la clase MergeSort
-  vector <Algoritmo*> algoritmos;
-  Algoritmo* merge = new MergeSort();
-  Algoritmo* quick = new QuickSort();
-  algoritmos.push_back(quick);
-  algoritmos.push_back(merge);
-  
-  // relleno el vector con numeros aleatorios
-  for (int i = 0; i < datos.numero_instancias; i++) {
-    secuencia.push_back(rand() % 100);
-  }
-  // muestro el vector sin resolver
-  for (int i = 0; i < datos.numero_instancias; i++) {
-    cout << "Vector sin resolver: " << secuencia[i] << " ";
-  }
-  cout << endl;
-  // resuelvo el vector
-  vector<int> resultado = algoritmos[0]->solve(secuencia, datos.numero_instancias);
-  // muestro el vector resuelto
-  for (int i = 0; i < datos.numero_instancias; i++) {
-    cout << resultado[i] << " ";
-  }
-  cout << endl;
-  //menu(datos.numero_instancias);
+
+  // Muestro el menú del programa
+  menu();
   return 0;
 }
