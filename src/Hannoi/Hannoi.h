@@ -25,8 +25,6 @@ class Hannoi : public Algoritmo {
   vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
   vector<int> combine(const vector<vector<int>>& secuencia) override; // Combina las dos partes de la secuencia
   string get_recurrencia() override {return "T(n) = 2T(n/2) + O(1)";}
- private:
- 
 };
 
 #endif

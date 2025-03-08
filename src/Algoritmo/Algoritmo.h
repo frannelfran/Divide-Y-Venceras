@@ -32,11 +32,6 @@ class Algoritmo {
   vector<int> solve(const vector<int>& secuencia); // Resuelve la secuencia
 
   virtual string get_recurrencia() = 0;
-
- protected:
-  int a_;
-  int b_;
-  int d_;
 };
 
 #endif

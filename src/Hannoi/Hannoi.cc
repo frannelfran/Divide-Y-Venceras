@@ -20,9 +20,8 @@
   * @param 
   * @return objeto de la clase Hannoi
   */
-Hannoi::Hannoi() {
+Hannoi::Hannoi() {}
 
-}
 /**
  * @brief Comprueba si la secuencia es pequeña
  * @param sequence Secuencia a comprobar
