@@ -70,7 +70,9 @@ vector<vector<int>> MergeSort::divide(const vector<int>& secuencia) {
   * @param subsequence2: segunda parte de la secuencia
   * @return secuencia combinada
   */
-vector<int> MergeSort::combine(const vector<int>& subsequence1, const vector<int>& subsequence2) {
+vector<int> MergeSort::combine(const vector<vector<int>>& subsequences) {
+  vector<int> subsequence1 = subsequences[0];
+  vector<int> subsequence2 = subsequences[1];
   vector<int> result;
   int size1 = subsequence1.size();
   int size2 = subsequence2.size();

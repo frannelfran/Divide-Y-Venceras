@@ -25,8 +25,7 @@ class BusquedaBinaria : public Algoritmo {
   virtual bool small(const vector<int>& sequence) override; // Comprueba si la secuencia es pequeña
   virtual vector<int> solveSmall(const vector<int>& sequence) override; // Resuelve la secuencia pequeña
   virtual vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
-  virtual vector<int> combineNotBin(const vector<vector<int>>& secuencia) override;// Combina las dos partes de la secuencia
-  virtual vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) override; // Combina las dos partes de la secuencia
+  virtual vector<int> combine(const vector<vector<int>>& secuencia) override;// Combina las dos partes de la secuencia
   virtual string get_recurrencia() override {return "T(n) = T(n/2) + O(1)";}
 
  private:

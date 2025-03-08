@@ -146,7 +146,7 @@ void menu() {
         Algoritmo* algoritmo = crear_algoritmo(nombre);
         for (long unsigned int i = 0; i < instancias.size(); i++) {
           auto start = std::chrono::high_resolution_clock::now();
-          algoritmo->solve(instancias[i], instancias[i].size());
+          algoritmo->solve(instancias[i]);
           auto end = std::chrono::high_resolution_clock::now();
           std::chrono::duration<double> elapsed = end - start;
           std::cout << "Tiempo de ejecución: " << elapsed.count() << "s" << std::endl;
@@ -164,7 +164,7 @@ void menu() {
         for (int i = 0; i < tamanio; i++) {
           instancia.push_back(rand() % 100 + 1);
         }
-        vector<int> ordenado = algoritmo->solve(instancia, tamanio);
+        vector<int> ordenado = algoritmo->solve(instancia);
         cout << "Secuencia ordenada: ";
         for (long unsigned int i = 0; i < ordenado.size(); i++) {
           std::cout << ordenado[i] << " ";

@@ -27,11 +27,9 @@ class Algoritmo {
   virtual bool small(const vector<int>& sequence) = 0; // Comprueba si la secuencia es pequeña
   virtual vector<int> solveSmall(const vector<int>& sequence) = 0; // Resuelve la secuencia pequeña
   virtual vector<vector<int>> divide(const vector<int>& secuencia) = 0; // Divide la secuencia en dos partes
-  virtual vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) = 0; // Combina las dos partes de la secuencia
-  virtual vector<int> combineNotBin(const vector<vector<int>>& subsecuencias) = 0; // Combina las partes de la secuencia
+  virtual vector<int> combine(const vector<vector<int>>& subsecuencias) = 0; // Combina las partes de la secuencia
 
-  vector<int> solve(const vector<int>& secuencia, int size); // Resuelve la secuencia
-  vector<int> solveNoBin(const vector<int>& secuencia); // Resuelve la secuencia
+  vector<int> solve(const vector<int>& secuencia); // Resuelve la secuencia
 
   virtual string get_recurrencia() = 0;
 

@@ -27,16 +27,15 @@ int main(int argc, char *argv[]) {
   }
   
   cout << "secuencia: " << endl;
-  Algoritmo* algoritmo = new BusquedaBinaria(5);
+  Algoritmo* algoritmo = new BusquedaBinaria(7);
+  // vector sin ordenar
   vector<int> secuencia = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  for (long unsigned int i = 0; i < secuencia.size(); i++) {
-    cout << secuencia[i] << endl;
+  vector<int> resultado = algoritmo->solve(secuencia);
+  cout << "secuencia ordenada: " << endl;
+  for (int i = 0; i < resultado.size(); i++) {
+    std::cout << resultado[i] << " ";
   }
-  algoritmo->solveNoBin(secuencia);
-  cout << "pos: ";
-  // for (int i = 0; i < resultado.size(); i++) {
-  //   std::cout << resultado[i] << " ";
-  // }
+  std::cout << std::endl;
 
 
 

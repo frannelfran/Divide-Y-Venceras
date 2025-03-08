@@ -24,7 +24,7 @@ class QuickSort : public Algoritmo {
   bool small(const vector<int>& sequence) override; // Comprueba si la secuencia es pequeña
   vector<int> solveSmall(const vector<int>& sequence) override; // Resuelve la secuencia pequeña
   vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
-  vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) override; // Combina las dos partes de la secuencia
+  vector<int> combine(const vector<vector<int>>& subsequence) override; // Combina las dos partes de la secuencia
   string get_recurrencia() override; 
  private:
   list<int> pivotes_;

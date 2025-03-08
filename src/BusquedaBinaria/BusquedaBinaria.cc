@@ -84,27 +84,7 @@ vector<vector<int>> BusquedaBinaria::divide(const vector<int>& secuencia) {
  * @param subsequence2 Segunda parte de la secuencia
  * @return vector<int> Secuencia combinada
 */
-vector<int> BusquedaBinaria::combineNotBin(const vector<vector<int>>& subsequences) {
-  cout << "combineNotBin" << subsequences.size() << endl;
+vector<int> BusquedaBinaria::combine(const vector<vector<int>>& subsequences) {
   return subsequences[0];
 
 }
-
-
-/**
- * @brief Función que combina las dos partes de la secuencia
- * @param subsequence1 Primera parte de la secuencia
- * @param subsequence2 Segunda parte de la secuencia
- * @return vector<int> Secuencia combinada
-*/
-vector<int> BusquedaBinaria::combine(const vector<int>& subsequence1, const vector<int>& subsequence2) {
-  vector<int> result;
-  for (long unsigned int i = 0; i < subsequence1.size(); i++) {
-    result.push_back(subsequence1[i]);
-  }
-  for (long unsigned int i = 0; i < subsequence2.size(); i++) {
-    result.push_back(subsequence2[i]);
-  }
-  return result;
-}
-
