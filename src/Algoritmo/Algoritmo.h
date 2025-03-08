@@ -15,6 +15,7 @@
 #ifndef C_Algoritmo_H
 #define C_Algoritmo_H
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -28,6 +29,8 @@ class Algoritmo {
   virtual vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) = 0; // Combina las dos partes de la secuencia
 
   vector<int> solve(const vector<int>& secuencia, int size); // Resuelve la secuencia
+
+  virtual string get_recurrencia() = 0;
 
  protected:
   int a_;

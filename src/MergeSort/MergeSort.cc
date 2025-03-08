@@ -95,3 +95,13 @@ vector<int> MergeSort::combine(const vector<int>& subsequence1, const vector<int
   }
   return result;
 }
+
+
+/** MergeSort::get_recurrencia()
+  * @brief Devuelve la recurrencia del algoritmo
+  * @param 
+  * @return string con la recurrencia del algoritmo
+  */
+string MergeSort::get_recurrencia() {
+  return "T(n) = 2T(n/2) + O(n)";
+}

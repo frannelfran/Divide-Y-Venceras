@@ -43,3 +43,8 @@ vector<int> Algoritmo::solve(const vector<int>& sequence, int size) {
     return result;
   }
 }
+
+/**
+ * @brief Función que devuelve la recurrencia del algoritmo
+ * @return string Recurrencia del algoritmo
+*/

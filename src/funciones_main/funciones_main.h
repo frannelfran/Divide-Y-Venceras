@@ -14,21 +14,22 @@
 //        03/05/25 - Creación (primera versión) del código
 #ifndef C_funciones_main_H
 #define C_funciones_main_H
-
+#include"../Algoritmo/Algoritmo.h"
 #include<iostream>
 #include<string>
-
-
+#include<vector>
+using namespace std;
 
 struct Dato {
   bool correcto;
   int numero_instancias;
+  std::string algoritmo;
 };
 
 Dato recoger_parametro(int argc, char *argv[]);
 void mostrar_ayuda();
 void mostrar_ayuda_resumida();
-void menu();
+void menu(int numero_instancias, vector<Algoritmo*> algoritmos);
 void mostrar_ayuda_menu();
 
 #endif
