@@ -45,6 +45,21 @@ vector<int> Algoritmo::solve(const vector<int>& sequence, int size) {
 }
 
 /**
- * @brief Función que devuelve la recurrencia del algoritmo
- * @return string Recurrencia del algoritmo
+ * @brief Función que ordena la secuencia
+ * @param sequence Secuencia a ordenar
+ * @return vector<int> Secuencia ordenada
 */
+
+vector<int> Algoritmo::solveNoBin(const vector<int>& sequence) {
+  if (small(sequence)) {
+    return solveSmall(sequence);
+  } else {
+    vector<vector<int>> parts = divide(sequence);
+    vector<vector<int>> subsecuencias;
+    for (int i = 0; i < parts.size(); i++) {
+      subsecuencias[i] = solveNoBin(parts[i]);
+    }
+    vector<int> result = combineNotBin(subsecuencias);
+    return result;
+  }
+}
