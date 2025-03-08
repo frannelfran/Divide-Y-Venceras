@@ -14,12 +14,23 @@
 //        03/05/25 - Creación (primera versión) del código
 #ifndef C_BusquedaBinaria_H
 #define C_BusquedaBinaria_H
+#include "../Algoritmo/Algoritmo.h"
 
-class BusquedaBinaria {
+class BusquedaBinaria : public Algoritmo {
  public:
-  BusquedaBinaria();
+  // Constructor
+  BusquedaBinaria(int objetivo);
+
+  // Métodos
+  virtual bool small(const vector<int>& sequence) override; // Comprueba si la secuencia es pequeña
+  virtual vector<int> solveSmall(const vector<int>& sequence) override; // Resuelve la secuencia pequeña
+  virtual vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
+  virtual vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) override {} // Combina las dos partes de la secuencia
+  virtual string get_recurrencia() = 0;
+
  private:
- 
+  int objetivo_;
+  int num_quitados_ = 0;
 };
 
 #endif
