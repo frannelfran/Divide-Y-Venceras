@@ -14,7 +14,6 @@
 //        03/05/25 - Creación (primera versión) del código
 #include"funciones_main/funciones_main.h"
 #include<iostream>
-#include "BusquedaBinaria/BusquedaBinaria.h"
 
 using namespace std;
 
@@ -26,20 +25,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
   
-  cout << "secuencia: " << endl;
-  Algoritmo* algoritmo = new BusquedaBinaria(7);
-  // vector sin ordenar
-  vector<int> secuencia = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  vector<int> resultado = algoritmo->solve(secuencia);
-  cout << "secuencia ordenada: " << endl;
-  for (int i = 0; i < resultado.size(); i++) {
-    std::cout << resultado[i] << " ";
-  }
-  std::cout << std::endl;
-
-
-
   // Muestro el menú del programa
-  //menu();
+  menu();
   return 0;
 }

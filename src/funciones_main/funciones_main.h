@@ -17,10 +17,12 @@
 #include"../Algoritmo/Algoritmo.h"
 #include"../MergeSort/MergeSort.h"
 #include"../QuickSort/QuickSort.h"
+#include"../BusquedaBinaria/BusquedaBinaria.h"
 #include<iostream>
 #include<string>
 #include<vector>
 #include<chrono>
+#include<algorithm>
 using namespace std;
 
 struct Dato {
@@ -33,9 +35,10 @@ Dato recoger_parametro(int argc, char *argv[]);
 void mostrar_ayuda();
 void mostrar_ayuda_resumida();
 void menu();
-Algoritmo* crear_algoritmo(const string& nombre);
+Algoritmo* crear_algoritmo(int numero);
 void mostrar_algoritmos();
 void mostrar_ayuda_menu();
+void mostrar_instancia(vector<int> instancia);
 vector<vector<int>> generar_instancias(int numero_instancias);
 
 #endif

@@ -72,8 +72,9 @@ void mostrar_ayuda_menu() {
 */
 void mostrar_algoritmos() {
   std::cout << "---Algoritmos disponibles---" << std::endl;
-  std::cout << "MergeSort" << std::endl;
-  std::cout << "QuickSort" << std::endl;
+  std::cout << "1. MergeSort" << std::endl;
+  std::cout << "2. QuickSort" << std::endl;
+  std::cout << "3. BusquedaBinaria" << std::endl;
   std::cout << "---------------------------" << std::endl;
   std::cout << "Escriba el nombre del algoritmo que desea utilizar: ";
 }
@@ -102,18 +103,39 @@ vector<vector<int>> generar_instancias(int numero_instancias) {
  * @return Algoritmo* 
 */
 
-Algoritmo* crear_algoritmo(const string& nombre) {
+Algoritmo* crear_algoritmo(int numero) {
   Algoritmo* algoritmo = nullptr;
-  string nombreFixed;
-  for (auto& c : nombre) {
-    nombreFixed += toupper(c); // Convertir a mayúsculas
-  }
-  if (nombreFixed == "MERGESORT") {
-    //algoritmo = new MergeSort();
-  } else if (nombreFixed == "QUICKSORT") {
-    //algoritmo = new QuickSort();
+  switch (numero) {
+    case 1:
+      algoritmo = new MergeSort();
+      break;
+    case 2:
+      algoritmo = new QuickSort();
+      break;
+    case 3:
+      cout << "Introduce el objetivo: ";
+      int objetivo;
+      cin >> objetivo;
+      algoritmo = new BusquedaBinaria(objetivo);
+      break;
+    default:
+      std::cerr << "Error: Algoritmo no válido" << std::endl;
+      break;
   }
   return algoritmo;
+}
+
+/**
+ * @brief Mostrar la instacia
+ * @param instancia Instancia a mostrar
+ * @return void
+*/
+
+void mostrar_instancia(vector<int> instancia) {
+  for (long unsigned int i = 0; i < instancia.size(); i++) {
+    std::cout << instancia[i] << " ";
+  }
+  std::cout << std::endl;
 }
 
 /**
@@ -122,8 +144,7 @@ Algoritmo* crear_algoritmo(const string& nombre) {
  */
 void menu() { 
   mostrar_ayuda_menu();
-  int opcion, tamanio;
-  string nombre;
+  int opcion, numero;
   int numero_instancias;
   while (true) {
     std::cout << std::endl;
@@ -142,8 +163,8 @@ void menu() {
         cin >> numero_instancias;
         vector<vector<int>> instancias = generar_instancias(numero_instancias);
         mostrar_algoritmos();
-        cin >> nombre;
-        Algoritmo* algoritmo = crear_algoritmo(nombre);
+        cin >> numero;
+        Algoritmo* algoritmo = crear_algoritmo(numero);
         for (long unsigned int i = 0; i < instancias.size(); i++) {
           auto start = std::chrono::high_resolution_clock::now();
           algoritmo->solve(instancias[i]);
@@ -155,15 +176,24 @@ void menu() {
       }
       case 3: {
         std::cout << "Modo debug" << std::endl;
-        mostrar_algoritmos();
-        cin >> nombre;
-        Algoritmo* algoritmo = crear_algoritmo(nombre);
         cout << "Instroduce el tamaño de la instancia: ";
+        int tamanio;
         cin >> tamanio;
         vector<int> instancia;
         for (int i = 0; i < tamanio; i++) {
           instancia.push_back(rand() % 100 + 1);
         }
+        mostrar_algoritmos();
+        cin >> numero;
+        Algoritmo* algoritmo = crear_algoritmo(numero);
+        if (numero == 3) {
+          // Ordeno la instancia
+          sort(instancia.begin(), instancia.end());
+          mostrar_instancia(instancia);
+          cout << "Posición del objetivo: " << algoritmo->solve(instancia)[0] << std::endl;
+          break;
+        }
+        mostrar_instancia(instancia);
         vector<int> ordenado = algoritmo->solve(instancia);
         cout << "Secuencia ordenada: ";
         for (long unsigned int i = 0; i < ordenado.size(); i++) {
