@@ -52,11 +52,14 @@ vector<int> Algoritmo::solve(const vector<int>& sequence, int size) {
 
 vector<int> Algoritmo::solveNoBin(const vector<int>& sequence) {
   if (small(sequence)) {
-    return solveSmall(sequence);
+    vector<int> result = solveSmall(sequence);
+    cout << "result: " << result[0] << endl;
+    return result;
   } else {
     vector<vector<int>> parts = divide(sequence);
     vector<vector<int>> subsecuencias;
-    for (int i = 0; i < parts.size(); i++) {
+    cout << "parts: " << parts[0].size() << endl;
+    for (long unsigned int i = 0; i < parts.size(); i++) {
       subsecuencias[i] = solveNoBin(parts[i]);
     }
     vector<int> result = combineNotBin(subsecuencias);

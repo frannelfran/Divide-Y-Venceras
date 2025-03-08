@@ -45,14 +45,12 @@ bool BusquedaBinaria::small(const vector<int>& sequence) {
 
 vector<int> BusquedaBinaria::solveSmall(const vector<int>& sequence) {
   vector<int> result;
-  if (sequence[0] == objetivo_) {
-    
-
-    
+  if (sequence[0] == this->objetivo_) {
+    result.push_back(this->num_quitados_);
+  } else {
+    result.push_back(-1);
   }
-  return {}
-
- 
+  return result;
 }
 
 /**
@@ -63,12 +61,20 @@ vector<int> BusquedaBinaria::solveSmall(const vector<int>& sequence) {
 
 vector<vector<int>> BusquedaBinaria::divide(const vector<int>& secuencia) {
   vector<vector<int>> parts;
-  int medio = secuencia.size() / 2;
-  int principio = 0;
-  int final = secuencia.size() - 1;
-  
-
-  
+  vector<int> subsequence = {};
+   int medio = secuencia.size() / 2;
+   if ( secuencia[medio] > this->objetivo_) {
+     // hago un push_back de la primera mitad
+     for (int i = 0; i < medio; i++) {
+       subsequence.push_back(secuencia[i]);
+     }
+   } else {
+     this->num_quitados_ += medio;
+     for (long unsigned int i = medio; i < secuencia.size(); i++) {
+       subsequence.push_back(secuencia[i]);
+     }
+   }
+  parts.push_back(subsequence);
   return parts;
 }
 
@@ -78,5 +84,27 @@ vector<vector<int>> BusquedaBinaria::divide(const vector<int>& secuencia) {
  * @param subsequence2 Segunda parte de la secuencia
  * @return vector<int> Secuencia combinada
 */
+vector<int> BusquedaBinaria::combineNotBin(const vector<vector<int>>& subsequences) {
+  cout << "combineNotBin" << subsequences.size() << endl;
+  return subsequences[0];
 
+}
+
+
+/**
+ * @brief Función que combina las dos partes de la secuencia
+ * @param subsequence1 Primera parte de la secuencia
+ * @param subsequence2 Segunda parte de la secuencia
+ * @return vector<int> Secuencia combinada
+*/
+vector<int> BusquedaBinaria::combine(const vector<int>& subsequence1, const vector<int>& subsequence2) {
+  vector<int> result;
+  for (long unsigned int i = 0; i < subsequence1.size(); i++) {
+    result.push_back(subsequence1[i]);
+  }
+  for (long unsigned int i = 0; i < subsequence2.size(); i++) {
+    result.push_back(subsequence2[i]);
+  }
+  return result;
+}
 

@@ -109,9 +109,9 @@ Algoritmo* crear_algoritmo(const string& nombre) {
     nombreFixed += toupper(c); // Convertir a mayúsculas
   }
   if (nombreFixed == "MERGESORT") {
-    algoritmo = new MergeSort();
+    //algoritmo = new MergeSort();
   } else if (nombreFixed == "QUICKSORT") {
-    algoritmo = new QuickSort();
+    //algoritmo = new QuickSort();
   }
   return algoritmo;
 }
@@ -144,7 +144,7 @@ void menu() {
         mostrar_algoritmos();
         cin >> nombre;
         Algoritmo* algoritmo = crear_algoritmo(nombre);
-        for (int i = 0; i < instancias.size(); i++) {
+        for (long unsigned int i = 0; i < instancias.size(); i++) {
           auto start = std::chrono::high_resolution_clock::now();
           algoritmo->solve(instancias[i], instancias[i].size());
           auto end = std::chrono::high_resolution_clock::now();
@@ -166,7 +166,7 @@ void menu() {
         }
         vector<int> ordenado = algoritmo->solve(instancia, tamanio);
         cout << "Secuencia ordenada: ";
-        for (int i = 0; i < ordenado.size(); i++) {
+        for (long unsigned int i = 0; i < ordenado.size(); i++) {
           std::cout << ordenado[i] << " ";
         }
         break;

@@ -17,15 +17,15 @@
 
 #include "../Algoritmo/Algoritmo.h"
 
-class Hannoi : public Algoritmo {
+class Hannoi {
  public:
   Hannoi();
-  bool small(const vector<int>& sequence) override; // Comprueba si la secuencia es pequeña
-  vector<int> solveSmall(const vector<int>& sequence) override; // Resuelve la secuencia pequeña
-  vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
-  vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) override; // Combina las dos partes de la secuencia
-  string get_recurrencia() override;
- private:
+ // bool small(const vector<int>& sequence) override; // Comprueba si la secuencia es pequeña
+ // vector<int> solveSmall(const vector<int>& sequence) override; // Resuelve la secuencia pequeña
+ // vector<vector<int>> divide(const vector<int>& secuencia) override; // Divide la secuencia en dos partes
+ // vector<int> combine(const vector<int>& subsequence1, const vector<int>& subsequence2) override; // Combina las dos partes de la secuencia
+ // string get_recurrencia() override;
+ //private:
  
 };
 
