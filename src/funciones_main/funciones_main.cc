@@ -171,6 +171,11 @@ void modo_normal() {
   mostrar_algoritmos();
   cin >> numero;
   Algoritmo* algoritmo = crear_algoritmo(numero);
+  if (numero == 4) {
+    for (long unsigned int i = 0; i < instancias.size(); i++) {
+      instancias[i] = {(instancias[i][0] % 10), 1, 3, 2}; // si es para el algoritmo de hannoi me quedo solo con el primer elemento
+    }
+  }
   mostrar_tiempos(instancias, algoritmo);
 }
 
@@ -199,6 +204,11 @@ void modo_debug() {
     mostrar_instancia(instancia);
     cout << "Posición del objetivo: " << algoritmo->solve(instancia)[0] << endl;
     return;
+  } else if (numero == 4) { // Si el algoritmo es hannoi
+    cout << "Introduce el número de discos: ";
+    int discos;
+    cin >> discos;
+    instancia = {discos, 1, 3, 2};
   }
   vector<int> ordenado = algoritmo->solve(instancia);
   cout << "Instancia ordenada: ";
