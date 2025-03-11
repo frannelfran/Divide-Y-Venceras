@@ -46,6 +46,7 @@ void modo_debug();
 void mostrar_tiempos(vector<vector<int>> instancias, Algoritmo* algoritmo);
 void mostrar_algoritmos();
 void mostrar_instancia(vector<int> instancia);
+void comparacion(vector<vector<int>> instancias, Algoritmo* algoritmo1, Algoritmo* algoritmo2);
 // Funciones auxiliares
 Algoritmo* crear_algoritmo(int numero);
 vector<vector<int>> generar_instancias(int numero_instancias);

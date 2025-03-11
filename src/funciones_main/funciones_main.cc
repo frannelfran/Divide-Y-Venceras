@@ -64,6 +64,7 @@ void mostrar_ayuda_menu() {
   cout << "1. Mostrar ayuda" << endl;
   cout << "2. Modo normal" << endl;
   cout << "3. Modo debug" << endl;
+  cout << "4. Comparación MergeSort y QuickSort" << endl;
 }
 
 /**
@@ -153,7 +154,9 @@ void mostrar_tiempos(vector<vector<int>> instancias, Algoritmo* algoritmo) {
     algoritmo->solve(instancias[i]);
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end - start;
-    cout << "Tiempo (" << i + 1 << ") " << elapsed.count() << "s" << endl;
+    cout << "Tiempo (" << i + 1 << ") " << elapsed.count() << "s.  " << "Tamaño de la secuancia: " << instancias[i].size() << endl;
+    cout << "Recursividad máxima: " << algoritmo->get_max_recursividad() << endl;
+    algoritmo->reset_recursividad();
   }
 }
 
@@ -213,6 +216,46 @@ void modo_debug() {
   vector<int> ordenado = algoritmo->solve(instancia);
   cout << "Instancia ordenada: ";
   mostrar_instancia(ordenado);
+  cout << "Recursividad máxima: " << algoritmo->get_max_recursividad() << endl;
+  algoritmo->reset_recursividad();
+}
+
+
+/**
+ * @brief Comparación de los algoritmos
+ * @param instancias Instancias a comparar
+ * @param algoritmo1 Algoritmo 1
+ * @param algoritmo2 Algoritmo 2
+ * @return void
+*/
+
+void comparacion(vector<vector<int>> instancias, Algoritmo* algoritmo1, Algoritmo* algoritmo2) {
+  cout << "--- Comparación QuickSort y MergeSort ---" << endl;
+  cout << "MergeSort: " << algoritmo1->get_recurrencia() << endl;
+  cout << "QuickSort: " << algoritmo2->get_recurrencia() << endl;
+  int recursividad1 = 0, recursividad2 = 0;
+  for (long unsigned int i = 0; i < instancias.size(); i++) {
+    // Algoritmo 1
+    auto start1 = chrono::high_resolution_clock::now();
+    algoritmo1->solve(instancias[i]);
+    auto end1 = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed1 = end1 - start1;
+    recursividad1 = algoritmo1->get_max_recursividad();
+    // Algoritmo 2
+    auto start2 = chrono::high_resolution_clock::now();
+    algoritmo2->solve(instancias[i]);
+    auto end2 = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed2 = end2 - start2;
+    recursividad2 = algoritmo1->get_max_recursividad();
+    
+    // Muestro los resultados
+    cout << "Instancia (" << i + 1 << ") "<< "Tamaño de la secuencia: " << instancias[i].size() << endl;
+    cout << "MergeSort: " << elapsed1.count() << "s. Recursividad máxima: " << recursividad1 << endl;
+    cout << "QuickSort: " << elapsed2.count() << "s. Recursividad máxima: " << recursividad2 << endl;
+    cout << endl;
+    algoritmo1->reset_recursividad();
+    algoritmo2->reset_recursividad();
+  }
 }
 
 /**
@@ -239,6 +282,16 @@ void menu() {
       case 3:
         modo_debug();
         break;
+      case 4: {
+        int numero_instancias;
+        cout << "Introduce el número de instancias: ";
+        cin >> numero_instancias;
+        vector<vector<int>> instancias = generar_instancias(numero_instancias);
+        Algoritmo* algoritmo1 = crear_algoritmo(1);
+        Algoritmo* algoritmo2 = crear_algoritmo(2);
+        comparacion(instancias, algoritmo1, algoritmo2);
+        break;
+      }
       default:
         cerr << "Error: Opción no válida" << endl;
         break;

@@ -31,7 +31,8 @@ Algoritmo::Algoritmo() {
  * @return vector<int> Secuencia ordenada
 */
 
-vector<int> Algoritmo::solve(const vector<int>& sequence) {
+vector<int> Algoritmo::solve(const vector<int>& sequence, int recursividad) {
+  this->set_max_recursividad(recursividad);
   if (small(sequence)) {
     vector<int> result = solveSmall(sequence);
     return result;
@@ -39,9 +40,44 @@ vector<int> Algoritmo::solve(const vector<int>& sequence) {
     vector<vector<int>> parts = divide(sequence);
     vector<vector<int>> subsecuencias(parts.size());
     for (long unsigned int i = 0; i < parts.size(); i++) {
-      subsecuencias[i] = solve(parts[i]);
+      subsecuencias[i] = solve(parts[i], recursividad + 1);
     }
     vector<int> result = combine(subsecuencias);
     return result;
   }
+}
+
+
+/**
+ * @brief Establece el máximo número de recursividad del algoritmo.
+ * @param recursividad número de recursividad del algoritmo.
+ * @return void
+*/
+
+void Algoritmo::set_max_recursividad(int recursividad) {
+  if (recursividad > this->recursividad) {
+    this->recursividad = recursividad;
+  }
+}
+
+
+/**
+ * @brief Devuelve el máximo número de recursividad del algoritmo.
+ * @param 
+ * @return int número de recursividad del algoritmo.
+*/
+
+int Algoritmo::get_max_recursividad() {
+  return recursividad;
+}
+
+
+/**
+ * @brief Resetea el número de recursividad del algoritmo.
+ * @param 
+ * @return void
+*/
+
+void Algoritmo::reset_recursividad() {
+  this->recursividad = 0;
 }
